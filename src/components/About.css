@@ -1,0 +1,348 @@
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  padding: 100px 10%;
+  background: #f5f6f4;
+}
+
+/* ==============================
+   IMAGE
+================================ */
+
+.about-image {
+  position: relative;
+  width: 42%;
+  max-width: 440px;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+.about-image img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 15px 5px 15px 5px;
+  display: block;
+  transition: transform 0.5s ease-in-out;
+}
+
+.about-image img:hover {
+  transform: scale(1.03);
+}
+
+/* ==============================
+   IMAGE DECORATIVE CORNERS
+================================ */
+
+/* TOP LEFT */
+
+.about-image::before {
+  content: "";
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  top: -15px;
+  left: -15px;
+  border: 3px solid #a58a65;
+  border-right: 0;
+  border-bottom: 0;
+  z-index: 2;
+  pointer-events: none;
+  transform: scale(0);
+  transform-origin: top left;
+}
+
+/* ==============================
+   EXPERIENCE BADGE
+================================ */
+
+.about-experience {
+  position: absolute;
+  bottom: -25px;
+  right: -15px;
+  width: 75px;
+  height: 75px;
+  background: #a58a65;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.about-experience span {
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.about-experience strong {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+/* ==============================
+   CONTENT
+================================ */
+
+.about-content {
+  max-width: 550px;
+  position: relative;
+  padding: 25px;
+  opacity: 0;
+  transform: translateX(60px);
+}
+
+/* CONTENT BOTTOM RIGHT CORNER */
+
+.about-content::after {
+  content: "";
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  bottom: -15px;
+  right: -15px;
+  border-right: 3px solid #a58a65;
+  border-bottom: 3px solid #a58a65;
+  pointer-events: none;
+  transform: scale(0);
+  transform-origin: bottom right;
+}
+
+/* LABEL */
+
+.about-label {
+  color: #a58a65;
+  font-size: 13px;
+  letter-spacing: 4px;
+  font-weight: 600;
+}
+
+/* HEADING */
+
+.about-content h2 {
+  font-size: 38px;
+  line-height: 1.3;
+  color: #28333b;
+  margin: 18px 0 10px;
+}
+
+/* MIRACLE SCISSORS ANIMATED TEXT */
+
+.about-content h2 span {
+  display: inline-block;
+  position: relative;
+
+  background: linear-gradient(110deg, #a58a65 20%, #e3c99e 40%, #a58a65 60%);
+
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* SUBHEADING */
+
+.about-content h3 {
+  font-size: 20px;
+  color: #28333b;
+  margin-bottom: 20px;
+}
+
+/* PARAGRAPH */
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #687078;
+}
+
+/* ==============================
+   SCROLL REVEAL ANIMATIONS
+================================ */
+
+/* IMAGE REVEAL */
+
+.about.show .about-image {
+  animation: imageReveal 1s ease-out forwards;
+}
+
+@keyframes imageReveal {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* CONTENT REVEAL */
+
+.about.show .about-content {
+  animation: contentReveal 1s ease-out 0.2s forwards;
+}
+
+@keyframes contentReveal {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* IMAGE CORNERS */
+
+.about.show .about-image::before {
+  animation: cornerReveal 0.8s ease-out 0.5s forwards;
+}
+
+.about.show .about-image::after {
+  animation: cornerReveal 0.8s ease-out 0.7s forwards;
+}
+
+@keyframes cornerReveal {
+  to {
+    transform: scale(1);
+  }
+}
+
+/* CONTENT CORNER */
+
+.about.show .about-content::after {
+  animation: cornerReveal 0.8s ease-out 1s forwards;
+}
+
+/* EXPERIENCE BADGE */
+
+.about.show .about-experience {
+  animation: badgeReveal 0.7s ease-out 0.9s forwards;
+}
+
+@keyframes badgeReveal {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==============================
+   BRAND NAME ANIMATION
+================================ */
+
+.about.show .about-content h2 span {
+  animation:
+    textReveal 0.9s ease-out 0.7s forwards,
+    goldShimmer 4s linear 1.8s infinite;
+}
+
+@keyframes textReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes goldShimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    padding: 70px 7%;
+    gap: 45px;
+  }
+
+  .about-image {
+    width: 85%;
+  }
+
+  .about-image img {
+    height: 380px;
+  }
+
+  .about-content {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .about-content h2 {
+    font-size: 30px;
+  }
+
+  .about-content p {
+    font-size: 15px;
+  }
+
+  .about-experience {
+    right: -15px;
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+  .about {
+    padding: 60px 6%;
+    gap: 40px;
+  }
+
+  .about-image {
+    width: 88%;
+  }
+
+  .about-image img {
+    height: 320px;
+  }
+
+  .about-content h2 {
+    font-size: 27px;
+  }
+
+  .about-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  .about-content p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+}
+
+/* ==============================
+   ACCESSIBILITY
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-image,
+  .about-content,
+  .about-image::before,
+  .about-image::after,
+  .about-content::after,
+  .about-experience,
+  .about-content h2 span {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .about-content h2 span {
+    background: none;
+    -webkit-text-fill-color: #a58a65;
+  }
+}
