@@ -1,11 +1,15 @@
 import React from "react";
+import "./Navbar.css";
 
 function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
         <img src="/images/logo.png" alt="Miracle Scissors Logo" />
-        <h2>Miracle Scissors</h2>
+        <div className="logo-text">
+          <h2>Miracle Scissors</h2>
+          <span>UNISEX SALON</span>
+        </div>
       </div>
 
       <ul className="nav-links">

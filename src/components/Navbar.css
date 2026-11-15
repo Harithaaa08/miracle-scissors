@@ -1,0 +1,179 @@
+/* NAVBAR */
+
+.navbar {
+  width: 100%;
+  min-height: 95px;
+  padding: 15px 8%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #f5f6f4;
+
+  position: relative;
+  z-index: 100;
+
+  box-shadow: 0 3px 15px rgba(48, 61, 73, 0.06);
+}
+
+/* LOGO */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.navbar-logo img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.navbar-logo h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #303d49;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+.logo-text span {
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #8299aa;
+}
+
+/* NAV LINKS */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #303d49;
+
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+/* HOVER UNDERLINE */
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+
+  width: 0;
+  height: 2px;
+
+  bottom: -7px;
+  left: 0;
+
+  background: #8299aa;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #8299aa;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* BOOK APPOINTMENT BUTTON */
+
+.nav-button {
+  padding: 14px 23px;
+
+  background: #303d49;
+  color: #f5f6f4;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+
+  border: 1px solid #303d49;
+  border-radius: 5px;
+
+  transition: all 0.3s ease;
+}
+
+.nav-button span {
+  margin-left: 8px;
+}
+
+.nav-button:hover {
+  background: #8299aa;
+  border-color: #8299aa;
+  color: #303d49;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 15px 5%;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+
+  .navbar-logo h2 {
+    font-size: 21px;
+  }
+
+  .nav-button {
+    padding: 12px 15px;
+  }
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px 4%;
+  }
+
+  .navbar-logo {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .nav-button {
+    display: none;
+  }
+}

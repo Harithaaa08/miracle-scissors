@@ -1,0 +1,189 @@
+/* HERO SECTION */
+
+.hero {
+  min-height: 88vh;
+  width: 100%;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background-image: url("/images/hero.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* DARK OVERLAY */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(rgba(25, 35, 43, 0.5), rgba(25, 35, 43, 0.6));
+
+  z-index: 0;
+}
+
+/* HERO CONTENT */
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  padding: 30px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  animation: heroReveal 1.2s ease both;
+}
+
+/* BRAND NAME */
+
+.hero-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+
+  margin-bottom: 25px;
+}
+
+.hero-tag {
+  color: #f5f6f4;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-family: "Playfair Display", serif;
+}
+
+.brand-line {
+  width: 100px;
+  height: 3px;
+  background: #9baebc;
+}
+
+/* MAIN HEADING */
+
+.hero-content h1 {
+  color: #f5f6f4;
+
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 500;
+  line-height: 1.15;
+
+  letter-spacing: 2px;
+  font-family: "Playfair Display", serif;
+
+  margin-bottom: 18px;
+}
+
+/* TAGLINE */
+
+.hero-quote {
+  color: #e0e7ec;
+
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 2px;
+
+  margin-bottom: 35px;
+}
+
+/* BUTTON */
+
+.hero-primary {
+  padding: 15px 32px;
+
+  background: #303d49;
+  color: #f5f6f4;
+
+  border: 1px solid #303d49;
+  border-radius: 2px;
+
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-primary span {
+  margin-left: 8px;
+}
+
+.hero-primary:hover {
+  background: #9baebc;
+  border-color: #9baebc;
+  color: #303d49;
+  transform: translateY(-4px);
+}
+
+/* ANIMATION */
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 75vh;
+    background-position: center;
+  }
+
+  .hero-brand {
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .hero-tag {
+    font-size: 21px;
+    letter-spacing: 1.5px;
+  }
+
+  .brand-line {
+    width: 40px;
+    height: 2px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(35px, 9vw, 48px);
+    letter-spacing: 1px;
+  }
+
+  .hero-quote {
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 1.7;
+  }
+
+  .hero-primary {
+    padding: 13px 25px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content {
+    animation: none;
+  }
+}
